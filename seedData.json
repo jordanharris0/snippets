@@ -2,46 +2,26 @@
   {
     "id": 1,
     "language": "Python",
-    "code": "print('Hello, World!')"
+    "code": "gAAAAABogmqyo51qdVBiIMfXe9EneqVc-Dyw07vyRO4UbIJyFlRNx3sdvq-cMkNLxZLWEy1MllQ8hR9gP6q0lFnevG7ECQJTzivuMWqcaen2d16icbkTbTc="
   },
   {
     "id": 2,
     "language": "Python",
-    "code": "def add(a, b):\n    return a + b"
+    "code": "gAAAAABogmq1U6kw9yY9B817Zjmyd436fzCPljITe73Bhf-PFd3zbmctNzZmcgmJOdPVzcL-8ODjhbwN--sNWqaRA-AN9_h4f6NeltYsv2ei0kTP_QvLAPs="
   },
   {
     "id": 3,
     "language": "Python",
-    "code": "class Circle:\n    def __init__(self, radius):\n        self.radius = radius\n\n    def area(self):\n        return 3.14 * self.radius ** 2"
+    "code": "gAAAAABogmq3AKGY6G5QARfmtKeaoQPEyjQkA8Zh3ahRiXt-T07BcQ0xb6NyWgs9xgHGYMc0kT76dPqmEim1DxwAduBREVR7aftucnTtNcM128ts339979HEx3fwZpsi0AGZrtAG9m4c4heTZslxKvQ3bI8chQYQ1N2L0KlMwd5-lUz_fEGXk2AQhYfUtTguIRcBaVWKIUYpjrh6O8aY8V20_DrbCDi0uVwV-ieRvRl7pu9H5pxTjrflpbS7jNPVluD3g_uhhUoO"
   },
   {
     "id": 4,
     "language": "JavaScript",
-    "code": "console.log('Hello, World!');"
+    "code": "gAAAAABogmq5f5NK_smCNlIMWd9OILPJtNHxpP9dsO7o5zbo52in56n_YEd_0sbZCiq_BdvzO_ge5asaGp6A6_yqpgAkd33SM-_dgUbigD_6xuG7ein2hoQ="
   },
   {
     "id": 5,
     "language": "JavaScript",
-    "code": "function multiply(a, b) {\n    return a * b;\n}"
-  },
-  {
-    "id": 6,
-    "language": "JavaScript",
-    "code": "const square = num => num * num;"
-  },
-  {
-    "id": 7,
-    "language": "Java",
-    "code": "public class HelloWorld {\n    public static void main(String[] args) {\n        System.out.println(\"Hello, World!\");\n    }\n}"
-  },
-  {
-    "id": 8,
-    "language": "Java",
-    "code": "public class Rectangle {\n    private int width;\n    private int height;\n\n    public Rectangle(int width, int height) {\n        this.width = width;\n        this.height = height;\n    }\n\n    public int getArea() {\n        return width * height;\n    }\n}"
-  },
-  {
-    "id": 9,
-    "language": "TESTING",
-    "code": "public class Rectangle {\n    private int width;\n    private int height;\n\n    public Rectangle(int width, int height) {\n        this.width = width;\n        this.height = height;\n    }\n\n    public int getArea() {\n        return width * height;\n    }\n}"
+    "code": "gAAAAABogmq7UhlIKuHQzdc8mIvCF725SnDmFYUa-JuJ4CfR4Mf6WGqpPlRa5-b0KUiT432HV49D4T8VLP-opTS4GlroQixk9qCX7RjtcNNpogOhNq8iGxIaxRgDo1oOH5OdKD-vo9t3"
   }
 ]
