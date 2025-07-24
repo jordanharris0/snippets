@@ -1,27 +1,48 @@
-[
-  {
-    "id": 1,
-    "language": "Python",
-    "code": "gAAAAABogmqyo51qdVBiIMfXe9EneqVc-Dyw07vyRO4UbIJyFlRNx3sdvq-cMkNLxZLWEy1MllQ8hR9gP6q0lFnevG7ECQJTzivuMWqcaen2d16icbkTbTc="
-  },
-  {
-    "id": 2,
-    "language": "Python",
-    "code": "gAAAAABogmq1U6kw9yY9B817Zjmyd436fzCPljITe73Bhf-PFd3zbmctNzZmcgmJOdPVzcL-8ODjhbwN--sNWqaRA-AN9_h4f6NeltYsv2ei0kTP_QvLAPs="
-  },
-  {
-    "id": 3,
-    "language": "Python",
-    "code": "gAAAAABogmq3AKGY6G5QARfmtKeaoQPEyjQkA8Zh3ahRiXt-T07BcQ0xb6NyWgs9xgHGYMc0kT76dPqmEim1DxwAduBREVR7aftucnTtNcM128ts339979HEx3fwZpsi0AGZrtAG9m4c4heTZslxKvQ3bI8chQYQ1N2L0KlMwd5-lUz_fEGXk2AQhYfUtTguIRcBaVWKIUYpjrh6O8aY8V20_DrbCDi0uVwV-ieRvRl7pu9H5pxTjrflpbS7jNPVluD3g_uhhUoO"
-  },
-  {
-    "id": 4,
-    "language": "JavaScript",
-    "code": "gAAAAABogmq5f5NK_smCNlIMWd9OILPJtNHxpP9dsO7o5zbo52in56n_YEd_0sbZCiq_BdvzO_ge5asaGp6A6_yqpgAkd33SM-_dgUbigD_6xuG7ein2hoQ="
-  },
-  {
-    "id": 5,
-    "language": "JavaScript",
-    "code": "gAAAAABogmq7UhlIKuHQzdc8mIvCF725SnDmFYUa-JuJ4CfR4Mf6WGqpPlRa5-b0KUiT432HV49D4T8VLP-opTS4GlroQixk9qCX7RjtcNNpogOhNq8iGxIaxRgDo1oOH5OdKD-vo9t3"
-  }
-]
+{
+  "snippets": [
+    {
+      "id": 1,
+      "language": "Python",
+      "code": "gAAAAABogmqyo51qdVBiIMfXe9EneqVc-Dyw07vyRO4UbIJyFlRNx3sdvq-cMkNLxZLWEy1MllQ8hR9gP6q0lFnevG7ECQJTzivuMWqcaen2d16icbkTbTc="
+    },
+    {
+      "id": 2,
+      "language": "Python",
+      "code": "gAAAAABogmq1U6kw9yY9B817Zjmyd436fzCPljITe73Bhf-PFd3zbmctNzZmcgmJOdPVzcL-8ODjhbwN--sNWqaRA-AN9_h4f6NeltYsv2ei0kTP_QvLAPs="
+    },
+    {
+      "id": 3,
+      "language": "Python",
+      "code": "gAAAAABogmq3AKGY6G5QARfmtKeaoQPEyjQkA8Zh3ahRiXt-T07BcQ0xb6NyWgs9xgHGYMc0kT76dPqmEim1DxwAduBREVR7aftucnTtNcM128ts339979HEx3fwZpsi0AGZrtAG9m4c4heTZslxKvQ3bI8chQYQ1N2L0KlMwd5-lUz_fEGXk2AQhYfUtTguIRcBaVWKIUYpjrh6O8aY8V20_DrbCDi0uVwV-ieRvRl7pu9H5pxTjrflpbS7jNPVluD3g_uhhUoO"
+    },
+    {
+      "id": 4,
+      "language": "JavaScript",
+      "code": "gAAAAABogmq5f5NK_smCNlIMWd9OILPJtNHxpP9dsO7o5zbo52in56n_YEd_0sbZCiq_BdvzO_ge5asaGp6A6_yqpgAkd33SM-_dgUbigD_6xuG7ein2hoQ="
+    },
+    {
+      "id": 5,
+      "language": "JavaScript",
+      "code": "gAAAAABogmq7UhlIKuHQzdc8mIvCF725SnDmFYUa-JuJ4CfR4Mf6WGqpPlRa5-b0KUiT432HV49D4T8VLP-opTS4GlroQixk9qCX7RjtcNNpogOhNq8iGxIaxRgDo1oOH5OdKD-vo9t3"
+    },
+    {
+      "id": 6,
+      "language": "Python",
+      "code": "gAAAAABogpin0N8tb0JNGtp-uGxmxCUoN01hRIeAEYN3zMx-VDDMHpZFtCY3o9R7rJlZM7rCBAaS1OTWyvZ_aEKaY0j0L0u-BeDnKpMJbrtYDwglIlAqvq4="
+    }
+  ],
+  "users": [
+    {
+      "email": "testing user",
+      "password": "$2b$12$qE/wtVaQnnByKJjdUiQ/QO6hlo.COwaPWYchw92Rlao.p9KzSG06K"
+    },
+    {
+      "email": "testing user2",
+      "password": "$2b$12$ELbU1DwTBcGS8NuEhFIk/Ou7gCJGGdzMAcHeLNa6KGunf4MbUR0XK"
+    },
+    {
+      "email": "testing user3",
+      "password": "$2b$12$z007ueBnsxsIFZw9GCAF..j/gVOQDLIMfD8Jfs3kXpidFf4s7eC4."
+    }
+  ]
+}
