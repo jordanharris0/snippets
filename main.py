@@ -1,4 +1,6 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends, Header, HTTPException, status
+from datetime import datetime, timedelta, timezone
+import base64
 from pydantic import BaseModel
 from typing import Optional
 import json
@@ -6,11 +8,15 @@ import os
 from cryptography.fernet import Fernet
 from cryptography.fernet import InvalidToken
 import bcrypt
+import jwt
 
 #dot env
 from dotenv import load_dotenv
 load_dotenv()
 FERNET_KEY = os.environ["FERNET_KEY"].encode()
+JWT_SECRET = os.getenv("JWT_SECRET", "secret")
+JWT_ALGORITHM = "HS256"
+TOKEN_EXPIRES = 24
 
 
 #cryptography key for encryption/decryption
@@ -43,6 +49,38 @@ def save_data(data):
     with open(DATA_FILE, 'w', encoding="utf-8") as f:
         json.dump(data, f, indent=2)
 
+# auth helper functions
+
+def create_access_token(data: dict, expires_delta: timedelta | None = None):
+    to_encode = data.copy()
+    expire = datetime.now(timezone.utc) + (expires_delta or timedelta(hours=TOKEN_EXPIRES))
+    to_encode.update({"exp": expire})
+    return jwt.encode(to_encode, JWT_SECRET, algorithm=JWT_ALGORITHM)
+
+def parse_basic_auth_header(auth_header: str | None):
+    if not auth_header or not auth_header.startswith("Basic "):
+        return None, None
+    try:
+        b64 = auth_header.split(" ", 1)[1]
+        decoded = base64.b64decode(b64).decode("utf-8")
+        email, password = decoded.split(":", 1)
+        return email, password
+    except Exception:
+        return None, None
+    
+def require_jwt_token(Authorization: str | None = Header(default=None)):
+    if not Authorization or not Authorization.startswith("Bearer "):
+        raise HTTPException(401, "Missing or invalid Bearer token")
+    
+    token = Authorization.split(" ", 1)[1]
+
+    try:
+        payload = jwt.decode(token, JWT_SECRET, algorithms=[JWT_ALGORITHM])
+        return payload
+    except jwt.ExpiredSignatureError:
+        raise HTTPException(401, "Token expired")
+    except jwt.InvalidTokenError:
+        raise HTTPException(401, "Invalid token")
 
 # initalize snippet list
 data = load_data()
@@ -51,7 +89,7 @@ users = data["users"]
 
 # post route
 @app.post('/snippets')
-def create_snippet(snippet: Snippet):
+def create_snippet(snippet: Snippet, _user: dict = Depends(require_jwt_token)):
     # gets max id from existing snippets or starts at 1 and increments it
     snippet_id = max([s['id'] for s in snippets], default=0) + 1
 
@@ -150,14 +188,20 @@ def create_user(user: User):
     })
 
     return {"message": "User created successfully", "user": user_data}
-
-@app.get('/user/by-login')
-def get_user(email: str, password: str):
-
-    for user in users:
-        if user["email"] == email:
-            #check if passwords match
-            if bcrypt.checkpw(password.encode(), user["password"].encode()):
-                return {"message": "Login successful", "user": email}
-            else:
-                return {"error": "Invalid password"}
+            
+# login route
+@app.post('/auth/login')
+def login(Authorization: str | None = Header(default=None)):
+    email, password = parse_basic_auth_header(Authorization)
+    if not email or not password:
+        raise HTTPException(401, "Invalid Basic auth header")
+    
+    user = next((u for u in users if u["email"].lower() == email.lower()), None)
+    if not user:
+        raise HTTPException(401, "Invalid email or password")
+    
+    if not bcrypt.checkpw(password.encode(), user["password"].encode()):
+        raise HTTPException(401, "Invalid email or password")
+    
+    token = create_access_token({"sub": email})
+    return {"access_token": token, "token_type": "bearer", "expires_in": 24*3600}

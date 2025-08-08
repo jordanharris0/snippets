@@ -29,6 +29,11 @@
       "id": 6,
       "language": "Python",
       "code": "gAAAAABogpin0N8tb0JNGtp-uGxmxCUoN01hRIeAEYN3zMx-VDDMHpZFtCY3o9R7rJlZM7rCBAaS1OTWyvZ_aEKaY0j0L0u-BeDnKpMJbrtYDwglIlAqvq4="
+    },
+    {
+      "id": 7,
+      "language": "Java",
+      "code": "gAAAAABolj0oC0lu98QQHBRl2u4Oxq5KnBhg5HEXACFeAMMfvST-NzX3GC8_DYaTf81VZZFh3k6bxjmtojKSdchsCqkOpo7q19sgYy8lyOKFC7EJ94GITzPjd7jkB7bPInMG-h50xomjPk98pczWGheG4l7fjrlkqEWX89BszXVEG_-i9BvnW3jvQeYdthdibz3eBNVX-OXCCYz7HYwXtYJj4uq1Fybw0OqLEan8IOtHMAmcoz0G8zA-S2oZMuQU6tHs-7w-c4Y8fc9Ir5MWLzD4breBbtHnd48f5kgFVpDK_-HdUlZr3gGL-xV6PZa2FfvcV1ALJbslIP4I2qPcn91DwqyGi_AGM1M3B00mAR7eptOZ2yrx9JOr6t3ZuVymK4MlLVqY0J4SAyyO3XxHWtRbvL7zsKsa3Q=="
     }
   ],
   "users": [
@@ -43,6 +48,10 @@
     {
       "email": "testing user3",
       "password": "$2b$12$z007ueBnsxsIFZw9GCAF..j/gVOQDLIMfD8Jfs3kXpidFf4s7eC4."
+    },
+    {
+      "email": "test@test.com",
+      "password": "$2b$12$EQdWvxznoulBcALlaHHTvOjepdgBV67.XakPF92vD/HCK8y1gbJO2"
     }
   ]
 }
