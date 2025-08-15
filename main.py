@@ -6,10 +6,6 @@ from starlette.config import Config
 from pydantic import BaseModel
 import os
 import json
-import bcrypt
-from cryptography.fernet import Fernet
-from cryptography.fernet import InvalidToken
-
 
 # dot env
 from dotenv import load_dotenv
