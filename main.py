@@ -15,14 +15,6 @@ from cryptography.fernet import InvalidToken
 from dotenv import load_dotenv
 load_dotenv()
 
-# FERNET_KEY = os.environ["FERNET_KEY"].encode()
-# fernet_key = Fernet.generate_key()
-# print("Generated Fernet Key:", fernet_key.decode())
-
-
-# cryptography key for encryption/decryption
-# fernet = Fernet(FERNET_KEY)
-
 # create fastAPI instance
 app = FastAPI()
 app.add_middleware(SessionMiddleware, secret_key=os.getenv("SECRET", "!supersecret"))
@@ -120,9 +112,6 @@ def create_snippet(snippet: Snippet, user: dict = Depends(require_login)):
     # gets max id from existing snippets or starts at 1 and increments it
     snippet_id = max([s['id'] for s in snippets], default=0) + 1
 
-    # encrypt the code before saving
-    # encrypted_code = fernet.encrypt(snippet.code.encode()).decode()
-
     # create a new snippet with the encrypted code
     snippet_data = {
         "id": snippet_id,
@@ -141,9 +130,7 @@ def create_snippet(snippet: Snippet, user: dict = Depends(require_login)):
 # get all route
 @app.get('/snippets')
 def get_all_snippets(user: dict = Depends(require_login)):
-    # decrypt the code before returning
-    # for s in snippets:
-    #     s["code"] = fernet.decrypt(s["code"].encode()).decode()
+
     return snippets
 
 
@@ -159,12 +146,7 @@ def get_snippet_lang(language: str = None, user: dict = Depends(require_login)):
     for s in snippets:
         # if language in snippets = language lowercase
         if s["language"].lower() == language.lower():
-            # try:
-            #     # decrypt "code"
-            #     decrypted_code = fernet.decrypt(s["code"].encode()).decode()
-            # except InvalidToken:
-            #     decrypted_code = "<decryption failed: invalid token>"
-            # return values of language
+
             result.append({
                 "id": s["id"],
                 "language": s["language"],
@@ -179,14 +161,6 @@ def get_snippet_lang(language: str = None, user: dict = Depends(require_login)):
 def get_snippet(snippet_id: int, user: dict = Depends(require_login)):
     for s in snippets:
         if s["id"] == snippet_id:
-            # try:
-            #     decrypted_code = fernet.decrypt(s["code"].encode()).decode()
-            # except InvalidToken:
-            #     return {
-            #         "id": s["id"],
-            #         "language": s["language"],
-            #         "code": "<decryption failed: invalid token>"
-            #     }
 
             return {
                 "id": s["id"],
@@ -195,22 +169,3 @@ def get_snippet(snippet_id: int, user: dict = Depends(require_login)):
             }
 
     return {'error': 'Snippets not found'}
-
-# not used anymore becuase of auth0?
-@app.post('/user')
-def create_user(user: User):
-    # hash the password
-    hashed_password = bcrypt.hashpw(user.password.encode(), bcrypt.gensalt())
-
-    # save user to file and append to snippets and save to seedData.json
-    user_data = {
-        "email": user.email,
-        "password": hashed_password.decode()
-    }
-    users.append(user_data)
-    save_data({
-        "snippets": snippets,
-        "users": users
-    })
-
-    return {"message": "User created successfully", "user": user_data}
