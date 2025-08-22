@@ -1,0 +1,6 @@
+fastapi
+authlib
+starlette
+pydantic
+python-dotenv
+
